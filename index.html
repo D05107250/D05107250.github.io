@@ -1,23 +1,34 @@
----
-layout: default
----
+<canvas id="myCanvas" width="2000" height="1000">
+</canvas> 
 
-<div class="home">
+<script>
 
-  <h1 class="page-heading">Posts</h1>
+ function Sin(degrees){
+	return Math.sin(degrees/180*Math.PI);
+ }
+ 
+ function Cos(degrees){
+	return Math.cos(degrees/180*Math.PI);
+ }
+ 
+ function drawTree(X,Y,length,angle,iterations){
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var endX = X + length * Cos(angle);
+	var endY = Y - length * Sin(angle)
+	ctx.moveTo(X,Y);
+	ctx.lineTo(endX,endY);
+	ctx.stroke();
+	
+	if (iterations > 0){		
+		drawTree(endX,endY,length * Math.random(),angle + 30 * Math.random(),iterations - 1);
+		drawTree(endX,endY,length * Math.random(),angle - 30 * Math.random(),iterations - 1);
+		//drawTree(endX,endY,length*.5,angle +30,iterations - 1);
+		//drawTree(endX,endY,length * .5,angle - 30,iterations - 1);
+	}
+ }
+ 
+ drawTree(700,600,200,90,9);
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+ 
+</script>
