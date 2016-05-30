@@ -25,6 +25,12 @@
 		drawTree(endX,endY,length * Math.random(),angle - 30 * Math.random(),iterations - 1);
 		//drawTree(endX,endY,length*.5,angle +30,iterations - 1);
 		//drawTree(endX,endY,length * .5,angle - 30,iterations - 1);
+	} else {
+		ctx.fillStyle = "orange";
+		ctx.beginPath();
+		ctx.arc(endX,endY,3,0,2*Math.PI);
+		ctx.fill();		
+		ctx.fillStyle = "black";
 	}
  }
  
