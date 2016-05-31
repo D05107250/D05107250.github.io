@@ -30,10 +30,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 	ctx.stroke();
 	
 	if (iterations > 0){		
-		drawTree(endX,endY,length * 0.9 * Math.random(),angle + 40 * Math.random(),iterations - 1);
-		drawTree(endX,endY,length * 0.9 * Math.random(),angle - 40 * Math.random(),iterations - 1);
-		//drawTree(endX,endY,length*.5,angle +30,iterations - 1);
-		//drawTree(endX,endY,length * .5,angle - 30,iterations - 1);
+		drawTree(endX,endY,length * 0.9 * Math.random(),angle + 30 * Math.random(),iterations - 1);
+		drawTree(endX,endY,length * 0.9 * Math.random(),angle - 30 * Math.random(),iterations - 1);
 	} else {
 		ctx.fillStyle = "red";
 		ctx.beginPath();
