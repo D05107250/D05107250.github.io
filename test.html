@@ -1,0 +1,164 @@
+<title>Random Tree Generator - by K Murphy</title>
+<link rel="image_src" href="RandomTree.png" />
+<meta property="og:image" content="http://d05107250.github.io/RandomTree.png">
+<canvas id="myCanvas" width="2000" height="1000" style="border:1px solid #000000;" onclick="canvasClick(event)">
+</canvas> 
+
+
+
+
+
+
+<script>
+
+function canvasClick(event) {
+	//alert(event.clientX - getElementById("myCanvas").offsetLeft);
+	alert((event.clientX - document.getElementById("myCanvas").offsetLeft) + ", " + (event.clientY - document.getElementById("myCanvas").offsetTop));
+}
+
+
+//Check user's device type
+var isMobile = false;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	isMobile = true;
+ 
+ 
+ //Trig functions
+ function Sin(degrees){
+	return Math.sin(degrees/180*Math.PI);
+ }
+ 
+ function Cos(degrees){
+	return Math.cos(degrees/180*Math.PI);
+ }
+ 
+ 
+ function exists(object){
+	return typeof object != "undefined";
+ }
+ 
+ //Constructor function for tree objects
+ function tree(x,y,length,angle,iterations){
+	this.x = x;
+	this.y = y;
+	this.length = length;
+	this.angle = angle;
+	this.iterations = iterations;
+	this.endX = x + length * Cos(angle);
+	this.endY = y - length * Sin(angle);
+	
+	if (iterations > 0) {
+		this.leftBranch = new tree(this.endX,this.endY,length * Math.random(),angle + 30 * Math.random(),iterations - 1);
+		this.rightBranch = new tree(this.endX,this.endY,length * Math.random(),angle - 30 * Math.random(),iterations - 1);
+	}
+
+	this.drawBranch = function () {
+		context.strokeStyle = "black";
+		context.beginPath();
+		context.moveTo(this.x,this.y);
+		context.lineTo(this.endX,this.endY);
+		context.lineWidth = isMobile ? 2 : 1;
+		context.stroke();
+		}
+	
+	this.drawBerry = function () {
+		context.strokeStyle = "black";
+		context.fillStyle = "rgb(255,0,0)";
+		context.beginPath();
+		context.arc(this.endX,this.endY,isMobile ? 10 : 4,0 , 2 * Math.PI);
+		context.fill();
+		context.stroke();
+	}
+	
+	this.drawRecursive = function () {
+		this.drawBranch();
+		if (exists(this.leftBranch) && exists(this.rightBranch)) {
+			this.leftBranch.drawRecursive();
+			this.rightBranch.drawRecursive();
+		} else {
+			this.drawBerry();
+		}
+	};
+ }
+
+//Set up canvas and context
+var canvasWidth = window.innerWidth - 20;
+var canvasHeight = window.innerHeight - 20;
+document.getElementById("myCanvas").width = canvasWidth;
+document.getElementById("myCanvas").height = canvasHeight;
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d"); 
+
+
+function redrawTrees () {
+	//context.fillStyle = "white";
+	//context.fillRect(0,0,canvasWidth,canvasHeight);
+	myTree.drawRecursive();	
+}
+
+
+ //Constructor function for berry objects
+function berry(x,y) {
+	this.x = x;
+	this.y = y;
+	this.fallingSpeed = 0;
+	
+	this.draw = function() {
+		context.strokeStyle = "black";
+		context.beginPath();
+		context.arc(this.x,this.y,isMobile ? 10 : 4,0 , 2 * Math.PI);
+		context.fillStyle = "red";	
+		context.fill();	
+		context.stroke();
+	}
+
+	this.erase = function() {
+		context.strokeStyle = "white";
+		context.beginPath();
+		context.arc(this.x,this.y,isMobile ? 11 : 5,0 , 2 * Math.PI);
+		context.fillStyle = "white";	
+		context.fill();	
+		context.stroke();
+		redrawTrees();
+	}
+
+	
+	this.fallFrame = function() {
+		if (this.y > canvasHeight) {	
+			clearInterval(this.updateInterval);   //fallen off bottom of screen
+			
+			var secondTree = new tree(Math.floor(this.x),canvasHeight,Math.floor(canvasHeight/3),90,9);
+			secondTree.drawRecursive();
+		}
+
+		this.erase();
+		this.fallingSpeed += 1;  //gravity
+		this.y += this.fallingSpeed;
+		this.x += 10;
+		this.draw();
+		
+	}
+
+	
+	this.fall = function() {
+		this.fallingSpeed = -10;
+		var thisRef = this;
+		this.updateInterval = setInterval(function () {thisRef.fallFrame();},30);
+	}
+}
+
+
+
+
+
+
+var myTree = new tree(Math.floor(canvasWidth/2),canvasHeight,Math.floor(canvasHeight/3),90,9);
+myTree.drawRecursive();
+
+var myBerry = new berry(Math.floor(canvasWidth/2),50);
+
+myBerry.fall();
+
+
+
+</script>
