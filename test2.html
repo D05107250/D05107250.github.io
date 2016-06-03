@@ -99,7 +99,9 @@ function drawTrees () {
 	/*for (var i = 0; i < trees.length; i++){
 		trees[i].drawRecursive();	
 	}*/   // Takes too long
-	trees[Math.floor(Math.random() * trees.length)].drawRecursive();
+	var i = Math.floor(Math.random() * trees.length);
+	trees[i].drawRecursive();
+	alert(i);
 }
 
 
