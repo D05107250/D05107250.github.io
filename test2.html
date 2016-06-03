@@ -138,7 +138,7 @@ function berry(x,y) {
 			clearInterval(this.updateInterval);   //fallen off bottom of screen
 			
 			var newTree = new tree(Math.floor(this.x),canvasHeight,Math.floor(canvasHeight*Math.random()/2),90,9);
-			newTree.draw();
+			newTree.drawRecursive();
 			drawTrees();
 		}
 
