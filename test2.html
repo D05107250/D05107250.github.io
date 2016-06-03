@@ -21,9 +21,7 @@ var context = canvas.getContext("2d");
 
 
 function canvasClick(event) {
-	//alert(event.clientX - getElementById("myCanvas").offsetLeft);
-	//alert((event.clientX - document.getElementById("myCanvas").offsetLeft) + ", " + (event.clientY - document.getElementById("myCanvas").offsetTop));
-	
+
 	var clickX = event.clientX - document.getElementById("myCanvas").offsetLeft;
 	var clickY = event.clientY - document.getElementById("myCanvas").offsetTop;
 	var newBerry = new berry(clickX,clickY);
