@@ -141,6 +141,7 @@ function berry(x,y) {
 			
 			var newTree = new tree(Math.floor(this.x),canvasHeight,Math.floor(canvasHeight*Math.random()/2),90,9);
 			newTree.drawRecursive();
+			trees.push(newTree);
 			drawTrees();
 		}
 
