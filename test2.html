@@ -96,9 +96,10 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 function drawTrees () {
-	for (var i = 0; i < trees.length; i++){
+	/*for (var i = 0; i < trees.length; i++){
 		trees[i].drawRecursive();	
-	}
+	}*/   // Takes too long
+	trees[Math.floor(Math.random() * trees.length)].drawRecursive();
 }
 
 
