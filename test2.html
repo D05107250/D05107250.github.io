@@ -11,9 +11,25 @@
 
 <script>
 
+//Set up canvas and context
+var canvasWidth = window.innerWidth - 20;
+var canvasHeight = window.innerHeight - 20;
+document.getElementById("myCanvas").width = canvasWidth;
+document.getElementById("myCanvas").height = canvasHeight;
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d"); 
+
+
 function canvasClick(event) {
 	//alert(event.clientX - getElementById("myCanvas").offsetLeft);
-	alert((event.clientX - document.getElementById("myCanvas").offsetLeft) + ", " + (event.clientY - document.getElementById("myCanvas").offsetTop));
+	//alert((event.clientX - document.getElementById("myCanvas").offsetLeft) + ", " + (event.clientY - document.getElementById("myCanvas").offsetTop));
+	
+	var clickX = event.clientX - document.getElementById("myCanvas").offsetLeft;
+	var clickY = event.clientY - document.getElementById("myCanvas").offsetTop;
+	var newBerry = new berry(clickX,clickY);
+	//alert(clickX + ", " + clickY);
+	newBerry.fall();
+	//alert(berries.length);
 }
 
 
@@ -39,6 +55,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  
  //Constructor function for tree objects
  function tree(x,y,length,angle,iterations){
+	trees.push(this);  //Add this tree to the trees array
 	this.x = x;
 	this.y = y;
 	this.length = length;
@@ -50,6 +67,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 	if (iterations > 0) {
 		this.leftBranch = new tree(this.endX,this.endY,length * Math.random(),angle + 30 * Math.random(),iterations - 1);
 		this.rightBranch = new tree(this.endX,this.endY,length * Math.random(),angle - 30 * Math.random(),iterations - 1);
+	} else {
+		this.berry = new berry(this.endX,this.endY);
 	}
 
 	this.drawBranch = function () {
@@ -61,14 +80,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 		context.stroke();
 		}
 	
-	this.drawBerry = function () {
-		context.strokeStyle = "black";
-		context.fillStyle = "rgb(255,0,0)";
-		context.beginPath();
-		context.arc(this.endX,this.endY,isMobile ? 10 : 4,0 , 2 * Math.PI);
-		context.fill();
-		context.stroke();
-	}
 	
 	this.drawRecursive = function () {
 		this.drawBranch();
@@ -76,32 +87,30 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 			this.leftBranch.drawRecursive();
 			this.rightBranch.drawRecursive();
 		} else {
-			this.drawBerry();
+			if (exists(this.berry) && !this.berry.fallen) this.berry.draw();
 		}
 	};
  }
 
-//Set up canvas and context
-var canvasWidth = window.innerWidth - 20;
-var canvasHeight = window.innerHeight - 20;
-document.getElementById("myCanvas").width = canvasWidth;
-document.getElementById("myCanvas").height = canvasHeight;
-var canvas = document.getElementById("myCanvas");
-var context = canvas.getContext("2d"); 
 
 
-function redrawTrees () {
-	//context.fillStyle = "white";
-	//context.fillRect(0,0,canvasWidth,canvasHeight);
-	myTree.drawRecursive();	
+
+function drawTrees () {
+	for (var i = 0; i < trees.length; i++){
+		trees[i].drawRecursive();	
+	}
 }
 
 
  //Constructor function for berry objects
 function berry(x,y) {
+	berries.push(this); //add this berry to the berries array
 	this.x = x;
 	this.y = y;
+	this.fallen = false;
 	this.fallingSpeed = 0;
+	
+	//this.hello = function(){alert("hello")};
 	
 	this.draw = function() {
 		context.strokeStyle = "black";
@@ -119,7 +128,7 @@ function berry(x,y) {
 		context.fillStyle = "white";	
 		context.fill();	
 		context.stroke();
-		redrawTrees();
+		//redrawTrees();
 	}
 
 	
@@ -127,38 +136,44 @@ function berry(x,y) {
 		if (this.y > canvasHeight) {	
 			clearInterval(this.updateInterval);   //fallen off bottom of screen
 			
-			var secondTree = new tree(Math.floor(this.x),canvasHeight,Math.floor(canvasHeight/3),90,9);
-			secondTree.drawRecursive();
+			var newTree = new tree(Math.floor(this.x),canvasHeight,Math.floor(canvasHeight*Math.random()/2),90,9);
+			drawTrees();
 		}
 
 		this.erase();
 		this.fallingSpeed += 2;  //gravity
 		this.y += this.fallingSpeed;
-		this.x += 10;
+		//this.x += 10;
 		this.draw();
 		
 	}
 
 	
 	this.fall = function() {
-		this.fallingSpeed = -25;
-		var thisRef = this;
-		this.updateInterval = setInterval(function () {thisRef.fallFrame();},30);
+		this.fallen = true;
+		//this.fallingSpeed = -25;
+		var thisRef = this;  // fixed reference to 'this' necessary to get setInterval() to work correctly
+		this.updateInterval = setInterval(function () {thisRef.fallFrame();},30);  //executes thisRef.fallFrame() repeatedly at intervals of 30 milliseconds
 	}
 }
 
 
 
 
+var berries = []; //Empty arries
+var trees = [];  
 
-
-var myTree = new tree(Math.floor(canvasWidth/2),canvasHeight,Math.floor(canvasHeight/3),90,9);
-myTree.drawRecursive();
+//var myTree = new tree(Math.floor(canvasWidth/2),canvasHeight,Math.floor(canvasHeight/3),90,9);
+//myTree.drawRecursive();
 
 var myBerry = new berry(Math.floor(canvasWidth/2),Math.floor(canvasHeight/2));
-
+//myBerry.draw();
 myBerry.fall();
 
 
 
 </script>
+
+
+
+
