@@ -1,0 +1,66 @@
+
+<body onload="next()">
+<form action="javascript:check()">
+<p id="question"></p>
+<span id="instruction"></span><input type="text" id="answer">
+<input type="submit" value="Check"><br><br>
+</form>
+<button onclick="show()">Show Answer</button>
+<button onclick="next()">Next</button>
+</body>
+
+<script>
+var questionList = [
+	{question:"The boy ate.", answers:["El niño comió."], language:"Spanish"},
+	{question:"El niño comió.", answers:["The boy ate.", "The child ate."], language:"English"},
+	{question:"It was an apple.", answers:["Era una manzana.", "Fue una manzana."], language:"Spanish"},
+	{question:"Era una manzana.", answers:["It was an apple."], language:"English"},
+	{question:"Fue una mujer.", answers:["It was a woman."], language:"English"},
+	{question:"It was a woman.", answers:["Fue una mujer."], language:"Spanish"},
+	{question:"Era una mujer.", answers:["She was a woman."], language:"English"},
+	{question:"Ella era una mujer.", answers:["She was a woman."], language:"English"},
+	{question:"She was a woman.", answers:["Era una mujer.", "Ella era una mujer."], language:"Spanish"},
+	{question:"Usted era una niña.", answers:["You were a girl.", "You were a child."], language:"English"},
+	{question:"Tú eras una niña.", answers:["You were a girl.", "You were a child."], language:"English"},
+	{question:"Eras una niña.", answers:["You were a girl.", "You were a child."], language:"English"},
+	{question:"You were a child.", answers:["Usted era una niña.", "Tú eras una niña.", "Eras una niña.","Usted era un niño.", "Tú eras un niño.", "Eras un niño."], language:"Spanish"},
+	{question:"You were a girl.", answers:["Usted era una niña.", "Tú eras una niña.", "Eras una niña."], language:"Spanish"},
+	{question:"It was a girl.", answers:["Fue una niña."], language:"Spanish"},
+	{question:"It was a child.", answers:["Fue una niña.", "Fue un niño."], language:"Spanish"},
+	{question:"Fue una niña.", answers:["It was a child.", "It was a girl."], language:"English"},	
+	{question:"Usted era un niño.", answers:["You were a boy.", "You were a child."], language:"English"},
+	{question:"Tú eras un niño.", answers:["You were a boy.", "You were a child."], language:"English"},
+	{question:"Eras un niño.", answers:["You were a boy.", "You were a child."], language:"English"},
+	{question:"You were a boy.", answers:["Usted era un niño.", "Tú eras un niño.", "Eras un niño."], language:"Spanish"},
+	{question:"It was a boy.", answers:["Fue un niño."], language:"Spanish"},
+	{question:"Fue un niño.", answers:["It was a child.", "It was a boy."], language:"English"}
+];
+
+
+var questionNumber;
+
+function next() {
+	questionNumber = Math.floor(Math.random() * questionList.length);
+	document.getElementById("question").innerHTML = questionList[questionNumber].question;
+	document.getElementById("instruction").innerHTML = "Type the " + questionList[questionNumber].language + " translation: ";
+	document.getElementById("answer").value = "";
+	document.getElementById("answer").focus();
+}
+
+function show() {
+	answerNumber = Math.floor(Math.random() * questionList[questionNumber].answers.length);
+	alert(questionList[questionNumber].answers[answerNumber]);
+}
+
+function check(){
+	var answer = document.getElementById("answer").value;
+	if (questionList[questionNumber].answers.indexOf(answer) > -1) {
+		alert("Correct");
+		next();
+	} else {
+		alert("Incorrect");
+		document.getElementById("answer").focus();
+	}	
+}
+
+</script>
