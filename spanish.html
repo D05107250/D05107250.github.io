@@ -6,7 +6,8 @@
 <input type="submit" value="Check"><br><br>
 </form>
 <button onclick="show()">Show Answer</button>
-<button onclick="next()">Next</button>
+<button onclick="next()">Next</button><br><br>
+<button onclick="errorReport()">Error</button><br><br>
 </body>
 <script src="spanish_data.js"></script>
 <script>
@@ -36,4 +37,16 @@ function check(){
 	}	
 }
 
+function errorReport() {
+	var hrefString = "mailto:kevmur@yahoo.co.uk?subject=Spanish%20Error%20Report&body="
+						+ "Question%3A%20" + questionList[questionNumber].question.replace(/ /g, "%20") + "%0A"
+						+ "Accepted%20Answers%3A%20%0A";
+						for (var i = 0; i < questionList[questionNumber].answers.length; i ++){
+							hrefString += "%20%20%20%20" + questionList[questionNumber].answers[i] + "%0A";
+						}
+						hrefString += "User%20Anwer%3A%20" + document.getElementById("answer").value;
+						
+						
+	window.location.href = hrefString;
+}
 </script>
