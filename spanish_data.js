@@ -103,6 +103,15 @@ var questionList = [
 	{question:"They read. (present tense)", answers:["Ellas leen.","Ellos leen.","Leen."], language:"Spanish"},	
 	{question:"Ellos leen un libro.", answers:["They read a book."], language:"English"},	
 	{question:"They read a book. (present tense)", answers:["Ellas leen un libro.","Ellos leen un libro.","Leen un libro."], language:"Spanish"},	
+	{question:"Nosotras comemos arroz.", answers:["We eat rice."], language:"English"},	
+	{question:"Nosotros comemos arroz.", answers:["We eat rice."], language:"English"},	
+	{question:"We eat rice.", answers:["Nosotras comemos arroz.","Nosotros comemos arroz.","Comemos arroz."], language:"Spanish"},	
+	{question:"Yo cocino pescado.", answers:["I cook fish."], language:"English"},	
+	{question:"I cook fish.", answers:["Yo cocino pescado.","Cocino pescado."], language:"Spanish"},	
+	{question:"Ellos no comen nada.", answers:["They do not eat anything.","They don't eat anything."], language:"English"},	
+	{question:"They do not eat anything.", answers:["Ellos no comen nada.","Ellas no comen nada.","No comen nada."], language:"Spanish"},
+	{question:"No cocino.", answers:["I do not cook.","I don't cook."], language:"English"},	
+	{question:"I do not cook.", answers:["Yo no cocino.","No cocino."], language:"Spanish"},	
 	
 	
 	
@@ -208,8 +217,16 @@ var questionList = [
 	{question:"Ellas leyeron.", answers:["They read."], language:"English"},	
 	{question:"They read. (past tense)", answers:["Ellas leyeron.","Ellos leyeron.","Leyeron."], language:"Spanish"},	
 	{question:"Ellos leyeron un libro.", answers:["They read a book."], language:"English"},	
-	{question:"They read a book. (past tense)", answers:["Ellas leyeron un libro.","Ellos leyeron un libro.","Leyeron un libro."], language:"Spanish"},	
-	
+	{question:"They read a book. (past tense)", answers:["Ellas leyeron un libro.","Ellos leyeron un libro.","Leyeron un libro."], language:"Spanish"},		
+	{question:"Nosotras comimos arroz.", answers:["We ate rice."], language:"English"},	
+	{question:"Nosotros comimos arroz.", answers:["We ate rice."], language:"English"},	
+	{question:"We ate rice.", answers:["Nosotras comimos arroz.","Nosotros comimos arroz.","Comimos arroz."], language:"Spanish"},	
+	{question:"Yo cociné pescado.", answers:["I cooked fish."], language:"English"},	
+	{question:"I cooked fish.", answers:["Yo cociné pescado.","Cociné pescado."], language:"Spanish"},	
+	{question:"Ellos no comieron nada.", answers:["They did not eat anything.","They didn't eat anything."], language:"English"},	
+	{question:"They did not eat anything.", answers:["Ellos no comieron nada.","Ellas no comieron nada.","No comieron nada."], language:"Spanish"},
+	{question:"No cociné.", answers:["I did not cook.","I didn't cook."], language:"English"},	
+	{question:"I did not cook.", answers:["Yo no cociné.","No cociné."], language:"Spanish"},		
 
 	
 	//Future
@@ -312,6 +329,14 @@ var questionList = [
 	{question:"Ellas leerán.", answers:["They will read."], language:"English"},	
 	{question:"They will read.", answers:["Ellas leerán.","Ellos leerán.","Leerán."], language:"Spanish"},	
 	{question:"Ellos leerán un libro.", answers:["They will read a book."], language:"English"},	
-	{question:"They will read a book.", answers:["Ellas leerán un libro.","Ellos leerán un libro.","Leerán un libro."], language:"Spanish"}	
-		
+	{question:"They will read a book.", answers:["Ellas leerán un libro.","Ellos leerán un libro.","Leerán un libro."], language:"Spanish"},	
+	{question:"Nosotras comeremos arroz.", answers:["We will eat rice."], language:"English"},	
+	{question:"Nosotros comeremos arroz.", answers:["We will eat rice."], language:"English"},	
+	{question:"We will eat rice.", answers:["Nosotras comeremos arroz.","Nosotros comeremos arroz.","Comeremos arroz."], language:"Spanish"},	
+	{question:"Yo cocinaré pescado.", answers:["I will cook fish."], language:"English"},	
+	{question:"I will cook fish.", answers:["Yo cocinaré pescado.","Cocinaré pescado."], language:"Spanish"},	
+	{question:"Ellos no comerán nada.", answers:["They will not eat anything.","They won't eat anything."], language:"English"},	
+	{question:"They will not eat anything.", answers:["Ellos no comerán nada.","Ellas no comerán nada.","No comerán nada."], language:"Spanish"},
+	{question:"No cocinaré.", answers:["I will not cook.","I won't cook."], language:"English"},	
+	{question:"I will not cook.", answers:["Yo no cocinaré.","No cocinaré."], language:"Spanish"}		
 ];
