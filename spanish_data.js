@@ -73,8 +73,18 @@ var questionList = [
 	{question:"Las niñas beben agua.", answers:["The girls drink water.","The children drink water."], language:"English"},	
 	{question:"The girls drink water.", answers:["Las niñas beben agua."], language:"Spanish"},	
 	{question:"Los niños beben agua.", answers:["The boys drink water.","The children drink water."], language:"English"},	
-	{question:"The boys drink water.", answers:["Los niños beben agua."], language:"Spanish"},	
-	
+	{question:"The boys drink water.", answers:["Los niños beben agua."], language:"Spanish"},		
+	{question:"Tú escribes un libro.", answers:["You write a book."], language:"English"},	
+	{question:"You write a book.", answers:["Tú escribes un libro.","Escribes un libro.","Usted escribe un libro.","Ustedes escriben un libro."], language:"Spanish"},	
+	{question:"Usted escribe un libro.", answers:["You write a book."], language:"English"},
+	{question:"Yo escribo una carta.", answers:["I write a letter."], language:"English"},		
+	{question:"I write a letter.", answers:["Yo escribo una carta.","Escribo una carta."], language:"Spanish"},		
+	{question:"Nosotros escribimos un libro.", answers:["We write a book.","We wrote a book."], language:"English"},		
+	{question:"We write a book.", answers:["Nosotros escribimos un libro.","Nosotras escribimos un libro.","Escribimos un libro."], language:"Spanish"},		
+	{question:"Ellas beben vino.", answers:["They drink wine."], language:"English"},		
+	{question:"They drink wine.", answers:["Ellas beben vino.","Ellos beben vino.","Beben vino."], language:"Spanish"},		
+	{question:"I drink wine.", answers:["Yo bebo vino.","Bebo vino."], language:"Spanish"},		
+	{question:"Yo bebo vino.", answers:["I drink wine."], language:"English"},		
 	
 	//Past
 	{question:"The boy ate.", answers:["El niño comió."], language:"Spanish"},
@@ -150,7 +160,16 @@ var questionList = [
 	{question:"The girls drank water.", answers:["Las niñas bebieron agua."], language:"Spanish"},	
 	{question:"Los niños bebieron agua.", answers:["The boys drank water.","The children drank water."], language:"English"},	
 	{question:"The boys drank water.", answers:["Los niños bebieron agua."], language:"Spanish"},	
-	
+	{question:"Tú escribiste un libro.", answers:["You wrote a book."], language:"English"},	
+	{question:"You wrote a book.", answers:["Tú escribiste un libro.","Escribiste un libro.","Usted escribió un libro.","Ustedes escribieron un libro."], language:"Spanish"},	
+	{question:"Usted escribió un libro.", answers:["You wrote a book."], language:"English"},
+	{question:"Yo escribí una carta.", answers:["I wrote a letter."], language:"English"},		
+	{question:"I wrote a letter.", answers:["Yo escribí una carta.","Escribí una carta."], language:"Spanish"},			
+	{question:"We wrote a book.", answers:["Nosotros escribimos un libro.","Nosotras escribimos un libro.","Escribimos un libro."], language:"Spanish"},		
+	{question:"Ellas bebieron vino.", answers:["They drank wine."], language:"English"},		
+	{question:"They drank wine.", answers:["Ellas bebieron vino.","Ellos bebieron vino.","Bebieron vino."], language:"Spanish"},		
+	{question:"I drank wine.", answers:["Yo bebí vino.","Bebí vino."], language:"Spanish"},		
+	{question:"Yo bebí vino.", answers:["I drank wine."], language:"English"},			
 	
 	//Future
 	{question:"The boy will eat.", answers:["El niño va a comer.", "El niño comerá."], language:"Spanish"},
@@ -223,5 +242,17 @@ var questionList = [
 	{question:"Las niñas beberán agua.", answers:["The girls will drink water.","The children will drink water."], language:"English"},	
 	{question:"The girls will drink water.", answers:["Las niñas beberán agua."], language:"Spanish"},	
 	{question:"Los niños beberán agua.", answers:["The boys will drink water.","The children will drink water."], language:"English"},	
-	{question:"The boys will drink water.", answers:["Los niños beberán agua."], language:"Spanish"},	
+	{question:"The boys will drink water.", answers:["Los niños beberán agua."], language:"Spanish"},		
+	{question:"Tú escribirás un libro.", answers:["You will write a book."], language:"English"},	
+	{question:"You will write a book.", answers:["Tú escribirás un libro.","Escribirás un libro.","Usted escribirá un libro.","Ustedes escribirán un libro."], language:"Spanish"},	
+	{question:"Usted escribirá un libro.", answers:["You will write a book."], language:"English"},
+	{question:"Yo escribiré una carta.", answers:["I will write a letter."], language:"English"},		
+	{question:"I will write a letter.", answers:["Yo escribiré una carta.","Escribiré una carta."], language:"Spanish"},		
+	{question:"Nosotros escribiremos un libro.", answers:["We will write a book."], language:"English"},		
+	{question:"We will write a book.", answers:["Nosotros escribiremos un libro.","Nosotras escribiremos un libro.","Escribiremos un libro."], language:"Spanish"},		
+	{question:"Ellas beberán vino.", answers:["They will drink wine."], language:"English"},		
+	{question:"They will drink wine.", answers:["Ellas beberán vino.","Ellos beberán vino.","Beberán vino."], language:"Spanish"},		
+	{question:"I will drink wine.", answers:["Yo beberé vino.","Beberé vino."], language:"Spanish"},		
+	{question:"Yo beberé vino.", answers:["I will drink wine."], language:"English"}
+	
 ];
