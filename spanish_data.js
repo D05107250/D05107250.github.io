@@ -161,7 +161,7 @@ var questionList = [
 	{question:"It was bread.", answers:["Fue pan.", "Era pan."], language:"Spanish"},
 	{question:"Era agua.", answers:["It was water."], language:"English"},
 	{question:"Fue agua.", answers:["It was water."], language:"English"},
-	{question:"It was water.", answers:["Era agua.", "Fue agua"], language:"Spanish"},	
+	{question:"It was water.", answers:["Era agua.", "Fue agua."], language:"Spanish"},	
 	{question:"You were boys.", answers:["Ustedes eran niños."], language:"Spanish"},	
 	{question:"Ustedes eran niños.", answers:["You were boys.","You were children."], language:"English"},
 	{question:"Éramos niños.", answers:["We were boys.","We were children."], language:"English"},
