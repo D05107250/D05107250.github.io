@@ -1,5 +1,3 @@
-alert("This is working ok");
-
 var questionList = [
 	{question:"The boy eats.", answers:["El niño come."], language:"Spanish"},
 	{question:"El niño come.", answers:["The boy eats.", "The child eats."], language:"English"},
