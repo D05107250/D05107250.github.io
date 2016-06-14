@@ -614,7 +614,7 @@ var questionList = [
 	{question:"Ellos no comían nada.", answers:["They were not eating anything.","They weren't eating anything.","They didn't use to eat anything.","They did not use to eat anything."], language:"English"},	
 	{question:"They were not eating anything.", answers:["Ellos no comían nada.","Ellas no comían nada.","No comían nada."], language:"Spanish"},
 	{question:"No cocinaba.", answers:["I was not cooking.","I wasn't cooking.","I did not use to cook.","I didn't use to cook."], language:"English"},	
-	{question:"I was not cooking.", answers:["Yo no cocinaba.","No cocinaba."], language:"Spanish"}	
+	{question:"I was not cooking.", answers:["Yo no cocinaba.","No cocinaba."], language:"Spanish"},	
 	
 	//Present Perfect
 	{question:"The boy has eaten.", answers:["El niño ha comido."], language:"Spanish"},
