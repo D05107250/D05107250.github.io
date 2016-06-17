@@ -59,7 +59,7 @@ questionList = questionList.concat([
 	{question:"We drank water.", answers:["Bebimos agua.", "Nosotros bebimos agua.", "Nosotras bebimos agua."], language:"English"},
 	{question:"You were girls.", answers:["Ustedes eran niñas."], language:"Spanish"},	
 	{question:"Ustedes eran niñas.", answers:["You were girls.","You were children."], language:"English"},	
-	{question:"Nosotras Éramos niñas.", answers:["We were girls.","We were children."], language:"English"},	
+	{question:"Nosotras éramos niñas.", answers:["We were girls.","We were children."], language:"English"},	
 	{question:"Ellas eran niñas.", answers:["They were girls.","They were children."], language:"Spanish"},	
 	{question:"They were girls.", answers:["Ellas eran niñas.","Eran niñas."], language:"Spanish"},	
 	{question:"You drank water.", answers:["Tú bebiste agua.", "Bebiste agua.", "Usted bebió agua.", "Ustedes bebieron agua."], language:"Spanish"},
